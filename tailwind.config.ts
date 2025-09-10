@@ -18,31 +18,25 @@ export default {
         'display': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
-        black: {
-          DEFAULT: "hsl(var(--pure-black))",
-          soft: "hsl(var(--soft-black))",
-        },
-        white: {
-          DEFAULT: "hsl(var(--pure-white))",
-        },
-        gray: {
-          50: "hsl(var(--muted))",
-          400: "hsl(var(--muted-foreground))",
-          900: "hsl(var(--soft-black))",
-        },
         hover: "hsl(var(--hover))",
         active: "hsl(var(--active))",
-        dot: {
-          primary: "hsl(var(--dot-primary))",
-          secondary: "hsl(var(--dot-secondary))",
-          accent: "hsl(var(--dot-accent))",
-        },
       },
       fontSize: {
         'xs': 'var(--text-xs)',
@@ -75,10 +69,22 @@ export default {
         fast: 'var(--duration-fast)',
         normal: 'var(--duration-normal)',
         slow: 'var(--duration-slow)',
+        'extra-slow': 'var(--duration-extra-slow)',
       },
       transitionTimingFunction: {
-        'out': 'var(--ease-out)',
-        'in-out': 'var(--ease-in-out)',
+        spring: 'var(--ease-spring)',
+        smooth: 'var(--ease-smooth)',
+        bounce: 'var(--ease-bounce)',
+      },
+      boxShadow: {
+        soft: 'var(--shadow-soft)',
+        medium: 'var(--shadow-medium)',
+        large: 'var(--shadow-large)',
+        glow: 'var(--shadow-glow)',
+      },
+      backgroundImage: {
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-glow': 'var(--gradient-glow)',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -87,25 +93,42 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" }
+        },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(0.95)" },
+          "100%": { opacity: "1", transform: "scale(1)" }
+        },
+        "slide-in-right": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" }
+        },
+        "glow-pulse": {
+          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--primary) / 0.3)" },
+          "50%": { boxShadow: "0 0 40px hsl(var(--primary) / 0.6)" }
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fade-up 0.6s var(--ease-smooth) forwards",
+        "scale-in": "scale-in 0.4s var(--ease-spring) forwards",
+        "slide-in-right": "slide-in-right 0.3s var(--ease-smooth)",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "float": "float 3s ease-in-out infinite",
       },
     },
   },

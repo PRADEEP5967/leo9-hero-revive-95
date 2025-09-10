@@ -4,32 +4,32 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Leo9 Studio Design System - Clean, minimal, professional */
+/* Leo9 Studio Design System - Interactive & Animated */
 
 @layer base {
   :root {
-    /* Core Colors - Minimal Palette */
+    /* Core Colors */
     --background: 0 0% 100%;
     --foreground: 0 0% 8%;
-    
-    /* Subtle Grays */
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
-    --subtle: 0 0% 90%;
     
-    /* Black & White System */
-    --pure-black: 0 0% 0%;
-    --pure-white: 0 0% 100%;
-    --soft-black: 0 0% 8%;
+    /* Interactive Colors */
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 220 85% 55%;
+    --primary: 220 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 260 85% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Animation Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 85% 55%), hsl(260 85% 60%));
+    --gradient-glow: linear-gradient(135deg, hsl(220 85% 55% / 0.3), hsl(260 85% 60% / 0.3));
     
     /* Interactive States */
     --hover: 0 0% 95%;
     --active: 0 0% 92%;
-    
-    /* Animation Colors */
-    --dot-primary: 0 0% 20%;
-    --dot-secondary: 0 0% 70%;
-    --dot-accent: 0 0% 85%;
     
     /* Typography Scale */
     --text-xs: 0.75rem;
@@ -57,14 +57,22 @@
     --space-4xl: 6rem;
     --space-5xl: 8rem;
     
-    /* Animation Timings */
+    /* Advanced Animation System */
     --duration-fast: 0.15s;
     --duration-normal: 0.3s;
-    --duration-slow: 0.5s;
+    --duration-slow: 0.8s;
+    --duration-extra-slow: 1.2s;
     
-    /* Bezier Curves */
-    --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
-    --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+    /* Premium Bezier Curves */
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Interactive Shadows */
+    --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.12);
+    --shadow-large: 0 20px 60px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
     
     --radius: 0.5rem;
   }
@@ -76,14 +84,107 @@
     --muted-foreground: 0 0% 60%;
     --hover: 0 0% 12%;
     --active: 0 0% 18%;
+    
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 85% 65%), hsl(260 85% 70%));
+    --gradient-glow: linear-gradient(135deg, hsl(220 85% 65% / 0.4), hsl(260 85% 70% / 0.4));
+    --shadow-glow: 0 0 40px hsl(220 85% 65% / 0.4);
   }
 }
 
 @layer base {
+  * {
+    @apply border-border;
+  }
+  
   body {
     @apply bg-background text-foreground font-sans;
     font-feature-settings: "kern";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Reusable Animation Classes */
+  .animate-fade-up {
+    @apply opacity-0 translate-y-6;
+    animation: fade-up 0.6s var(--ease-smooth) forwards;
+  }
+  
+  .animate-scale-in {
+    @apply opacity-0 scale-95;
+    animation: scale-in 0.4s var(--ease-spring) forwards;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300;
+    transition-timing-function: var(--ease-smooth);
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .interactive-element {
+    @apply transition-all duration-300 cursor-pointer;
+    transition-timing-function: var(--ease-smooth);
+  }
+  
+  .interactive-element:hover {
+    @apply scale-105;
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-md;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .dark .glass-effect {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer utilities {
+  @keyframes fade-up {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scale-in {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    }
+  }
+  
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
   }
 }
