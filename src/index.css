@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Leo9 Studio Design System - Clean, minimal, professional */
+
+@layer base {
+  :root {
+    /* Core Colors - Minimal Palette */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+    
+    /* Subtle Grays */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --subtle: 0 0% 90%;
+    
+    /* Black & White System */
+    --pure-black: 0 0% 0%;
+    --pure-white: 0 0% 100%;
+    --soft-black: 0 0% 8%;
+    
+    /* Interactive States */
+    --hover: 0 0% 95%;
+    --active: 0 0% 92%;
+    
+    /* Animation Colors */
+    --dot-primary: 0 0% 20%;
+    --dot-secondary: 0 0% 70%;
+    --dot-accent: 0 0% 85%;
+    
+    /* Typography Scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+    --text-7xl: 4.5rem;
+    --text-8xl: 6rem;
+    --text-9xl: 8rem;
+    
+    /* Spacing System */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    --space-4xl: 6rem;
+    --space-5xl: 8rem;
+    
+    /* Animation Timings */
+    --duration-fast: 0.15s;
+    --duration-normal: 0.3s;
+    --duration-slow: 0.5s;
+    
+    /* Bezier Curves */
+    --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+    --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+    
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    --hover: 0 0% 12%;
+    --active: 0 0% 18%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "kern";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
