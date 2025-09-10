@@ -65,13 +65,13 @@ const Navigation = ({ isDarkMode = false, toggleDarkMode }: NavigationProps) => 
           >
             <div className="flex items-center space-x-3">
               <motion.div 
-                className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center"
-                whileHover={{ scale: 1.1, rotate: 180 }}
+                className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center shadow-soft"
+                whileHover={{ scale: 1.1, boxShadow: "var(--shadow-glow)" }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="w-4 h-4 border-2 border-white rounded-full" />
+                <span className="text-white font-bold text-sm">PS</span>
               </motion.div>
-              <span className="text-2xl font-black text-foreground">leo9</span>
+              <span className="text-2xl font-black text-foreground">Pradeep Studio</span>
             </div>
           </motion.div>
 

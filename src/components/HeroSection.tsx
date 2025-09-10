@@ -70,14 +70,14 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8"
+            className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12"
           >
-            Redefining user experiences through{' '}
+            Crafting exceptional digital experiences through{' '}
             <span className="gradient-text font-semibold">
-              Behavioural Science & AI
+              Innovation & Design Excellence
             </span>
             <br />
-            <span className="text-foreground font-medium">Your trusted UI UX design agency.</span>
+            <span className="text-foreground font-medium">Your partner in digital transformation.</span>
           </motion.p>
 
           {/* CTA Buttons */}

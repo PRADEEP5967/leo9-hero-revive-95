@@ -65,12 +65,12 @@ const Index = () => {
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
           />
-          <motion.h2 
+           <motion.h2 
             className="text-2xl font-bold text-black dark:text-white"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            leo9
+            Pradeep Studio
           </motion.h2>
         </motion.div>
       </motion.div>
